@@ -125,7 +125,7 @@ func main() {
 
 	// Delete
 
-	const perChunk = 2
+	const perChunk = 6
 
 	// Split in chunks of ids to limit the number of requests to twitter
 	type chunk []int64
@@ -164,7 +164,7 @@ func main() {
 			})
 		}
 
-		break
+		time.Sleep(1 * time.Second)
 	}
 
 	if err := eg.Wait(); err != nil {
