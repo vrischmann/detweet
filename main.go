@@ -113,6 +113,7 @@ func main() {
 	for _, v := range data {
 		// Ignore tweets after the newest date
 		if v.CreatedAt.inner.After(newestDate) {
+			logrus.Infof("ignoring tweets after %s", newestDate.Format(time.RFC3339))
 			break
 		}
 
@@ -158,7 +159,7 @@ func main() {
 					return nil
 				}
 
-				logrus.Printf("deleted tweet id %d, %q", id, tweet.Text)
+				logrus.Printf("deleted tweet, id %d created at: %s, %q", id, tweet.CreatedAt, tweet.Text)
 
 				return nil
 			})
