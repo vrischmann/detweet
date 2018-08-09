@@ -128,7 +128,6 @@ func main() {
 
 	const perChunk = 6
 
-	// Split in chunks of ids to limit the number of requests to twitter
 	type chunk []int64
 	nbChunks := len(ids) / perChunk
 	chunks := make([]chunk, nbChunks)
